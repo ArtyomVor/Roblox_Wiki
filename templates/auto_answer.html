@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/styleAnswer.css">
+{% endblock %}
+
+{% block content %}
+    <div class="answer-block">
+        <p>Фамилия: {{ surname }}</p>
+        <p>Имя: {{ name }}</p>
+        <p>Образование: {{ education }}</p>
+        <p>Профессия: {{ profession }}</p>
+        <p>Пол: {{ sex }}</p>
+        <p>Мотивация: {{ motivation }}</p>
+        <p>Готовы остаться на Марсе? {{ ready }}</p>
+    </div>
+
+
+{% endblock %}

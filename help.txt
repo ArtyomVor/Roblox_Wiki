@@ -1,0 +1,166 @@
+# Things =)
+
+# Добавить по всему коду Bookmarks
+# Добавить рестарт со сменой ключа - как ввод в консоль
+
+#########################################################################
+# Python 3
+
+# pip install -r requirements.txt
+# pip list
+
+# pip install flask
+# pip install flask-wtf
+# pip install sqlalchemy
+# pip install alembic
+
+#########################################################################
+# sqlalchemy
+
+# Типы данных
+# sqlalchemy.Integer - id
+# sqlalchemy.String - строка
+# sqlalchemy.DateTime - время
+
+# primary_key=True - является ли id
+# autoincrement=True - увеличивается само - признак автоинкрементного поля
+# nullable=True/False - может ли быть пустым
+# unique=True/False - тока уникальная информация (email)
+# default=datetime.datetime.now - функция для значение по умолчанию (НЕ ВЫЗЫВАТЬ, А ПЕРЕДАТЬ)
+# index=True - создать индекс по этому полю (+ скорость обращения, - скорость создания)
+
+# sqlalchemy.ForeignKey("users.id")
+
+########################### Работа в коде
+# user = User()
+# user.name = "Пользователь 1"
+# db_sess = db_session.create_session()
+# db_sess.add(user)
+# db_sess.commit()
+
+########################### Обращение
+# db_sess = db_session.create_session()
+# user = db_sess.query(User).first()
+# user = db_sess.query(User).filter(User.id == 1).first()
+
+# db_sess = db_session.create_session()
+#     for user in db_sess.query(User).all():
+#         print(user) # переопределить в __repr__
+
+################# filter
+
+# EQUALS	     query(User).filter(User.name == 'Иван')
+
+# NOT EQUAL	 query(User).filter(User.name != 'Иван')
+
+# LIKE	     query(User).filter(User.name.like('%Иван%'))
+
+# NOT LIKE	 query(User).filter(User.name.notlike('%Иван%'))
+
+# IN	         query(User).filter(User.name.in_(['Иван', 'Петр', 'Максим']))
+
+# NOT IN	     query(User).filter(User.name.notin_(['Иван', 'Петр', 'Максим']))
+#          или query(User).filter(~User.name.in_(['Иван', 'Петр', 'Максим']))
+
+# NULL	     query(User).filter(User.name == None)
+
+# AND	         query(User).filter(User.name == 'Иван', User.id > 3)
+#          или query(User).filter(User.name == 'Иван').filter(User.id > 3)
+
+# OR (скобки)	 query(User).filter((User.name == 'Иван') | (User.id > 3))
+#          или query(User).filter(or_(User.name == 'Иван', User.id > 3))
+
+################# delete
+# db_sess = db_session.create_session()
+# db_sess.query(User).filter(User.id >= 3).delete()
+#     db_sess.commit()
+
+########################### Alembic
+# alembic revision --autogenerate -m "добавили признак публикации"
+# alembic upgrade head
+
+#########################################################################
+# Index
+
+# Шаблоны
+
+# {% set a = 10 %}
+
+# {% if условие_1 %}
+#        ветка 1
+#  {% elif условие_2 %} (не обязательно)
+#        ветка 1
+# {% else %} (не обязательно)
+#       ветка 2
+# {% endif %}
+
+# {% for переменная цикла in набор значений %}
+#     код
+# {% endfor %}
+# loop.index — индекс итерации с 1
+# loop.index0 — индекс итерации с нуля
+# loop.first — True, если первая итерация, иначе False
+# loop.last — True, если последняя итерация, иначе False
+
+#########################################################################
+# CSS
+
+# color - цвет текста
+# font-size - размер текста
+# font-weight: bold / font-weight: 350 - жирный текст
+# text-align: left - по левому краю
+# text-align: center - по центру
+# text-align: right - по правому краю
+# text-align: justify - по ширине
+
+# margin - внешний отступ
+# padding - внутренний отступ
+# top - сверху
+# right - справа
+# bottom - снизу
+# left - слева
+
+# border-radius: 10px - сглаживание краёв
+# border: <толщина> <стиль> <цвет> - рамка вокруг элемента
+#   solid - сплошная линия
+#   dashed - пунктир
+#   dotted - точки
+#   double - двойная линия
+#   none - без рамки
+
+# <ol> - нумерованный список
+# <ul> - маркерованный список
+# <ol>
+#     <li> Шикая
+#     <li> Банкай
+# </ol>
+
+#########################################################################
+# Коды
+
+# 1xx — информационные
+# 100 Continue — сервер говорит: «Ок, продолжай отправку данных»
+
+# 2xx — успех
+# 200 OK — всё хорошо, обычный ответ
+# 201 Created — ресурс создан (например, файл загружен)
+# 204 No Content — всё ок, но без тела ответа
+
+# 3xx — перенаправления
+# 301 Moved Permanently — постоянный редирект
+# 302 Found — временный редирект (как у тебя)
+# 304 Not Modified — браузер может использовать кеш
+
+# 4xx — ошибка клиента
+# 400 Bad Request — неправильный запрос
+# 401 Unauthorized — нужна авторизация
+# 403 Forbidden — доступ запрещён
+# 404 Not Found — страница не найдена
+# 409 Conflict — конфликт (например, файл уже существует)
+# 429 Too Many Requests — слишком много запросов
+
+# 5xx — ошибка сервера
+# 500 Internal Server Error — ошибка в коде
+# 502 Bad Gateway — проблема между серверами
+# 503 Service Unavailable — сервер перегружен или выключен
+# 504 Gateway Timeout — сервер не дождался ответа
