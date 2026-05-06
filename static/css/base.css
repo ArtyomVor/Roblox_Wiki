@@ -1,0 +1,230 @@
+body {
+    background: url("../img/JJS_MainPage1.png") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.top-header {
+    background: #1a1a1a;
+    color: white;
+    padding: 12px 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.top-nav-wrapper {
+    width: 50%;
+    margin: 20px auto 0 auto;
+    display: flex;
+    align-items: flex-center;
+    gap: 10px;
+}
+
+
+.top-nav-left {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+.top-nav-logo {
+    height: 120px;
+    width: auto;
+    border-radius: 6px;
+}
+
+
+.top-nav-right {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.top-nav-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 0 4px rgba(0,0,0,0.6);
+    line-height: 1;
+    margin: 0 0 10px 0;
+}
+
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    font-weight: 600;
+}
+
+
+.top-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+}
+
+
+.top-nav a:hover {
+    color: #007bff;
+}
+
+
+.page-wrapper {
+    width: 50%;
+    height: 90vh;
+    margin: 20px auto;
+    display: flex;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+}
+
+
+.content {
+    width: 100%;
+    padding: 30px;
+    overflow-y: auto;
+    background: white;
+}
+
+
+.page-title {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+h2 {
+    margin-top: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav-list > li > a,
+.dropdown-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 8px 6px;
+    display: inline-block;
+}
+
+
+.dropdown {
+    position: relative;
+}
+
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    min-width: 220px;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity .15s ease, transform .15s ease, visibility .15s;
+}
+
+
+.dropdown:hover > .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+.dropdown-content > li {
+    position: relative;
+}
+
+
+.nested-link {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+}
+
+
+.nested-link:hover {
+    background: #f0f0f0;
+}
+
+
+.nested-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    min-width: 200px;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(6px);
+    transition: opacity .15s ease, transform .15s ease, visibility .15s;
+}
+
+
+.dropdown-nested:hover > .nested-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+
+.nested-menu li a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+}
+
+
+.nested-menu li a:hover {
+    background: #f0f0f0;
+}

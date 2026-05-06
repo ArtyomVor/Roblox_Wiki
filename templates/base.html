@@ -1,23 +1,94 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
-    {% block extra_css %}{% endblock %}
-    <title>{{title}}</title>
-</head>
-<body>
-<header>
-    <h1>Миссия Колонизация Марса</h1>
-    <h4 style="color: #d1d2d4;">И на Марсе будут яблони цвести!</h4>
-</header>
-<!-- Begin page content -->
-<main role="main" class="container">
-    {% block content %}{% endblock %}
-</main>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/JJS_Logo.png') }}">
+        <title>JJS_Wiki =)</title>
+    </head>
+
+    <body>
+        <header class="top-header">
+            <div class="logo">Jujutsu Shenanigans Wiki</div>
+        </header>
+
+        <div class="top-nav-wrapper">
+            <div class="top-nav-left">
+                <a href="/secrets/authors">
+                    <img src="{{ url_for('static', filename='img/JJS_Logo.png') }}" class="top-nav-logo">
+                </a>
+            </div>
+
+            <div class="top-nav-right">
+                <a href="/moders/TZE🤣" class="top-nav-title">Jujutsu Shenanigans</a>
+
+                <nav class="top-nav">
+                    <a href="/about" class="dropdown-link">About</a>
+                    <ul class="nav-list">
+                        <li class="dropdown">
+                            <a href="/characters" class="dropdown-link">Characters</a>
+                            <ul class="dropdown-content">
+                                <li class="dropdown-nested">
+                                    <a href="#" class="nested-link">Complete</a>
+                                        <ul class="nested-menu">
+                                            <li><a href="/characters/honored_one">Honored One</a></li>
+                                            <li><a href="/characters/vessel">Vessel</a></li>
+                                            <li><a href="/characters/restless_gambler">Restless Gambler</a></li>
+                                        </ul>
+                                </li>
+
+                                <li class="dropdown-nested">
+                                    <a href="#" class="nested-link">Base Only</a>
+                                        <ul class="nested-menu">
+                                            <li><a href="/characters/locust_guy">Locust Guy</a></li>
+                                            <li><a href="/characters/star_rage">Star Rage</a></li>
+                                        </ul>
+                                </li>
+
+                                <li class="dropdown-nested">
+                                    <a href="#" class="nested-link">Overpowered and Others</a>
+                                    <ul class="nested-menu">
+                                        <li><a href="/characters/strongest_of_history">Strongest of History</a></li>
+                                        <li><a href="/characters/monkey_kid">Monkey Kid</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-nested">
+                                    <a href="#" class="nested-link">Early Access</a>
+                                    <ul class="nested-menu">
+                                        <li><a href="/characters/Disaster Plant">Disaster Plant</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="page-wrapper">
+            <main class="content">
+                <h1 class="page-title">Добро пожаловать в Jujutsu Shenanigans Wiki!</h1>
+                <p class="lead">
+                    Этот сайт поможет вам ближе познакомиться с игрой в Roblox под названием Jujutsu Shenanigans.
+                </p>
+
+                <h2>Об игре</h2>
+                <p>
+                    Это самый лучший в мире плейс - баттлграунд.
+                </p>
+
+                <h2>Страницы</h2>
+                <ul>
+                    <li><a href="/characters">Персонажи</a></li>
+                    <li><a href="/character/Honored One">Honored One</a></li>
+                </ul>
+            </main>
+        </div>
+    </body>
 </html>

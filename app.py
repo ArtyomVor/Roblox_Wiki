@@ -1,4 +1,9 @@
 from flask import Flask
+from flask import request
+from flask import url_for
+from flask import redirect
+from flask import render_template
+from os import path
 
 from data import db_session
 from data.users import User
@@ -43,9 +48,51 @@ def main():
     # print(f"{pers.name}: tips updated")
 
 
+@app.route("/")
+@app.route("/index")
+def index():
+    return redirect(url_for('welcome'))
+
+
+@app.route("/about")
+@app.route("/welcome")
+def welcome():
+    return render_template("base.html")
+
+
+# @app.route("/characters")
+# def characters():
+#     return "Characters page"
+#
+#
+# @app.route("/character/<name>")
+# def character(name):
+#     return f"Character page: {name}"
+#
+#
+# @app.route("/mechanics/<thing>")
+# def mechanics(thing):
+#     return f"Mechanic: {thing}"
+
+
+@app.route("/secret/authors")
+@app.route("/secrets/authors")
+def secretAuthors():
+    return "Проект Воропаева Артёма и Кузнецова Максима по Любимому Яндекс Лицую❤"
+
+
+@app.route("/secret/67")
+@app.route("/secrets/67")
+@app.route("/67")
+def secter67():
+    return render_template('index67.html')
+
+
 if __name__ == '__main__':
     main()
-    # app.run(port=8080, host='127.0.0.1')
+    app.run(port=8080, host='127.0.0.1')
+
+# TZE ❤😍🤣
 
 # tips
 # добавлен(а) в базу данных
