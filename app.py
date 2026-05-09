@@ -57,7 +57,7 @@ def index():
 @app.route("/about")
 @app.route("/welcome")
 def welcome():
-    return render_template("base.html")
+    return render_template("welcome.html")
 
 
 # @app.route("/characters")
@@ -96,7 +96,19 @@ if __name__ == '__main__':
 
 # tips
 # добавлен(а) в базу данных
+# добавить Котика - Авторы
 # создать перса Макора
 # Что за Mokou
 
 # alembic нам не нужён!
+
+
+
+# Исправлен редирект у /about
+# Авторизация
+# Добавлена ссылка на разработчиков Jujutsu Shenanigans.
+# Сделан шаблон для страниц персонажей.
+
+
+# 11 не будет
+# 14 защита
