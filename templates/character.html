@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div role="main" class="page-wrapper">
+    <main class="content">
+        <!-- Имя -->
+        <h1 class="char-name">{{ name }}</h1>
+
+        <!-- Описание -->
+        <section class="char-top-block">
+            <div class="char-description">
+                <h2>Описание</h2>
+                <p>{{ description }}</p>
+            </div>
+
+            <div class="char-infobox">
+                <div class="infobox-row title">
+                    {{ name }}
+                </div>
+
+                <div class="infobox-row image">
+                    <div id="marsCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src={{ img_url1 }}>
+                          </div>
+                          <div class="carousel-item">
+                            <img src={{ img_url2 }}>
+                          </div>
+                          <div class="carousel-item">
+                            <img src={{ img_url_Ult_Activation }}>
+                          </div>
+                          <div class="carousel-item">
+                            <img src={{ img_url_Ult }}>
+                          </div>
+                          <div class="carousel-item">
+                            <img src={{ img_url_Ult2 }}>
+                          </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#marsCarousel" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#marsCarousel" data-bs-slide="next">
+                          <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="infobox-row stats">
+                    <p><span>Персонаж:</span> <span>{{ who }}</span></p>
+                    <p><span>Цена:</span> <span>{{ price }}</span></p>
+                    <p><span>Авейк(ульта):</span> <span>{{ awakening }}</span></p>
+                    <p><span>Здоровье:</span> <span>{{ health }} hp</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Приёмы -->
+        <section class="char-moves">
+            <h2>Приёмы(Скиллы)</h2>
+
+            <!-- Таб меню -->
+            <div class="moves-tabs">
+                <button class="tab-btn active" data-tab="base">Base</button>
+                <button class="tab-btn" data-tab="awakening">Awakening</button>
+            </div>
+
+            <!-- Контент Base -->
+            <div class="moves-content active" id="base">
+                <!-- 1 -->
+                <div class="move-card">
+                    <div class="move-title">Удар Силы</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move1.png">
+                        <p>Мощный удар, отбрасывающий врага назад.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 40</span>
+                        <span><strong>Cooldown:</strong> 5s</span>
+                        <span><strong>AwakeGives:</strong> 10</span>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="move-card">
+                    <div class="move-title">Разрез Реальности</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move2.png">
+                        <p>Режущий удар, игнорирующий броню.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 55</span>
+                        <span><strong>Cooldown:</strong> 7s</span>
+                        <span><strong>AwakeGives:</strong> 15</span>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="move-card">
+                    <div class="move-title">Прорыв</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move3.png">
+                        <p>Рывок вперёд с пробивным ударом.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 30</span>
+                        <span><strong>Cooldown:</strong> 4s</span>
+                        <span><strong>AwakeGives:</strong> 8</span>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="move-card">
+                    <div class="move-title">Сфера Давления</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move4.png">
+                        <p>Создаёт сферу, наносящую урон вокруг.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 60</span>
+                        <span><strong>Cooldown:</strong> 10s</span>
+                        <span><strong>AwakeGives:</strong> 20</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Контент Awakening -->
+            <div class="moves-content" id="awakening">
+                <!-- 1 -->
+                <div class="move-card">
+                    <div class="move-title">Пробуждённый Удар</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move5.png">
+                        <p>Усиленный удар с огромным уроном.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 80</span>
+                        <span><strong>Cooldown:</strong> 6s</span>
+                        <span><strong>AwakeGives:</strong> 0</span>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="move-card">
+                    <div class="move-title">Разлом Пространства</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move6.png">
+                        <p>Открывает разлом, наносящий урон по площади.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 100</span>
+                        <span><strong>Cooldown:</strong> 12s</span>
+                        <span><strong>AwakeGives:</strong> 0</span>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="move-card">
+                    <div class="move-title">Сверхрывок</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move7.png">
+                        <p>Молниеносный рывок с пробитием защиты.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 70</span>
+                        <span><strong>Cooldown:</strong> 5s</span>
+                        <span><strong>AwakeGives:</strong> 0</span>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="move-card">
+                    <div class="move-title">Сфера Разрушения</div>
+                    <div class="move-tags">Block • IFrame • HitRagdoll</div>
+                    <div class="move-main">
+                        <img src="/static/img/move8.png">
+                        <p>Создаёт разрушительную сферу, наносящую огромный урон.</p>
+                    </div>
+                    <div class="move-stats">
+                        <span><strong>Damage:</strong> 120</span>
+                        <span><strong>Cooldown:</strong> 15s</span>
+                        <span><strong>AwakeGives:</strong> 0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Советы -->
+        <section class="char-tips">
+            <h2>Советы</h2>
+            <p>{{ tips }}</p>
+        </section>
+
+        <!-- Интересные факты -->
+        <section class="char-facts">
+            <h2>Интересные факты</h2>
+            <p>{{ facts }}</p>
+        </section>
+
+    </main>
+</div>
+
+<!-- Скрипт картинок в описании -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Скрипт табов -->
+<script>
+document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        document.querySelectorAll(".moves-content").forEach(c => c.classList.remove("active"));
+        document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+});
+</script>
+
+{% endblock %}

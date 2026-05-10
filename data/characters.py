@@ -7,10 +7,16 @@ class Character(SqlAlchemyBase):
     __tablename__ = 'characters'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
-    name = sqlalchemy.Column(sqlalchemy.String, nullable=True, index=True)
+    name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    urlname = sqlalchemy.Column(sqlalchemy.String, nullable=True, index=True)
+    who = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    price = sqlalchemy.Column(sqlalchemy.String, nullable=True, default="Бесплатный")
+    health = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     base_only = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
     overpowered = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
-    tips = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    description = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    tips = sqlalchemy.Column(sqlalchemy.String, nullable=True, default="Пусто)")
+    facts = sqlalchemy.Column(sqlalchemy.String, nullable=True, default="Пусто)")
 
     is_custom = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
 

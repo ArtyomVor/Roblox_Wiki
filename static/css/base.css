@@ -228,3 +228,133 @@ h2 {
 .nested-menu li a:hover {
     background: #f0f0f0;
 }
+
+/* ---------------------< Characters >--------------------- */
+/* Контейнер инфобокса */
+.char-infobox {
+    width: 280px;
+    background: #f8f8f8;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.char-top-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.char-description {
+    flex: 2;
+}
+
+/* Каждая строка таблицы */
+.infobox-row {
+    padding: 10px 12px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+/* Заголовок таблицы */
+.infobox-row.title {
+    background: #2b2b2b;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Картинка */
+.infobox-row.image img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* Блок характеристик */
+.infobox-row.stats {
+    background: #ffffff;
+}
+
+.infobox-row.stats p {
+    margin: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.infobox-row.stats p span:first-child {
+    font-weight: 700;
+}
+
+
+/* Последняя строка */
+.infobox-row.next {
+    background: #efefef;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Горизонтальный блок: описание + инфобокс */
+.char-top-block {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Контейнер карточек */
+.moves-content {
+    display: none;
+}
+
+.moves-content.active {
+    display: block;
+}
+
+/* Карточка приёма */
+.move-card {
+    width: 100%;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+/* 1 строка — название */
+.move-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* 2 строка — теги */
+.move-tags {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+/* 3 строка — картинка + описание */
+.move-main {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.move-main img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* 4 строка — Damage / Cooldown / AwakeGives */
+.move-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 600;
+}

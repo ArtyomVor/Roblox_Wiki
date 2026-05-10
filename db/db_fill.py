@@ -13,12 +13,21 @@ from data.db_session import create_session
 def Honored_One():
     character = Character()
     character.name = "Honored One"
+    character.urlname = "Honored_One"
+    character.who = "Годжо Сатору"
+    character.health = "100"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     - существует специальные варианты на 2 + R, 3 + R
     - используйте R, когда противник в воздухе, это активирует воздушный вариант
     - после нажатия R, повернитесь на 180 градусов, тогда вы телепортируетесь за спину противника'''
+    character.facts = '''
+    - когда вы стоите в блоке, вы немного парите над землёй
+    - в ранних концептах с помощью Lapse Blue Max(ult 1) можно было бросать разрушенные блоки'''
     character.is_custom = False
 
     character.move1 = "Lapse Blue"
@@ -46,8 +55,14 @@ def Honored_One():
 def Vessel():
     character = Character()
     character.name = "Vessel"
+    character.urlname = "Vessel"
+    character.who = "Итадори Юджи / Рёмен Сукуна(15 пальцев)"
+    character.health = "85"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     - для манёвренности можно использовать 2 + R
     - используйте "chain" - чёрную молнию(Divergent Fist) в спину противнику - максимум 4 раза
@@ -84,8 +99,14 @@ def Vessel():
 def Restless_Gambler():
     character = Character()
     character.name = "Restless Gambler"
+    character.urlname = "Restless_Gambler"
+    character.who = "Киндзи Хакари"
+    character.health = "100"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     - Reserve Balls может отскакивать от стен
     - существует вариант 1 + 2, а так же 4 + 2
@@ -124,8 +145,14 @@ def Restless_Gambler():
 def Ten_Shadows():
     character = Character()
     character.name = "Ten Shadows"
+    character.urlname = "Ten_Shadows"
+    character.who = "Фушигуро Мегуми"
+    character.health = "85"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     - когда вы используете эмоцию волк(Divine Dog: Totality) начинает танцевать)
     - если вы держите какой-то предмет, то нажав R вы поместите его к себе в тень - максимум 1 штука, чтобы вытащить нажмите R + M1
@@ -164,8 +191,14 @@ def Ten_Shadows():
 def Perfection():
     character = Character()
     character.name = "Perfection"
+    character.urlname = "Perfection"
+    character.who = "Махито"
+    character.health = "100"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -195,8 +228,14 @@ def Perfection():
 def Blood_Manipulator():
     character = Character()
     character.name = "Blood Manipulator"
+    character.urlname = "Blood_Manipulator"
+    character.who = "Чосо"
+    character.health = "100"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -226,8 +265,14 @@ def Blood_Manipulator():
 def Switcher():
     character = Character()
     character.name = "Switcher"
+    character.urlname = "Switcher"
+    character.who = "Аои Тодо"
+    character.health = "100"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -257,8 +302,14 @@ def Switcher():
 def Defense_Attorney():
     character = Character()
     character.name = "Defense Attorney"
+    character.urlname = "Defense_Attorney"
+    character.who = "Хироми Хигурума"
+    character.health = "90"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -288,8 +339,14 @@ def Defense_Attorney():
 def Cursed_Partners():
     character = Character()
     character.name = "Cursed Partners"
+    character.urlname = "Cursed_Partners"
+    character.who = "Окоцу Юта"
+    character.health = "100"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -319,8 +376,14 @@ def Cursed_Partners():
 def Puppet_Master():
     character = Character()
     character.name = "Puppet Master"
+    character.urlname = "Puppet_Master"
+    character.who = "Мехамару(Кокичи Мута)"
+    character.health = "85, 117 в авейке(ульте)"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -350,8 +413,14 @@ def Puppet_Master():
 def Head_of_the_Hei():
     character = Character()
     character.name = "Head of the Hei"
+    character.urlname = "Head_of_the_Hei"
+    character.who = "Дзенин Наоя"
+    character.health = "90, 75 в авейке(ульте)"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -381,8 +450,14 @@ def Head_of_the_Hei():
 def Salaryman():
     character = Character()
     character.name = "Salaryman"
+    character.urlname = "Salaryman"
+    character.who = "Кенто Нанами"
+    character.health = "100"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -412,8 +487,15 @@ def Salaryman():
 def Disaster_Plant():
     character = Character()
     character.name = "Disaster Plant"
+    character.urlname = "Disaster_Plant"
+    character.who = "Ханами"
+    character.health = "100"
+    character.price = "Early Access"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -443,8 +525,15 @@ def Disaster_Plant():
 def True_Cannon():
     character = Character()
     character.name = "True Cannon"
+    character.urlname = "True_Cannon"
+    character.who = "Ишигори Рью"
+    character.health = "100"
+    character.price = "Early Access"
     character.base_only = False
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -476,8 +565,14 @@ def True_Cannon():
 def Locust_Guy():
     character = Character()
     character.name = "Locust Guy"
+    character.urlname = "Locust_Guy"
+    character.who = "Ко-Гай"
+    character.health = "90"
     character.base_only = True
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -500,8 +595,14 @@ def Locust_Guy():
 def Star_Rage():
     character = Character()
     character.name = "Star Rage"
+    character.urlname = "Star_Rage"
+    character.who = "Тсукумо Юки"
+    character.health = "100"
     character.base_only = True
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     - прицепитесь будучи чёрной дырой в авейку(ульите) Наои(Head of the Hei) союзнику - у него отличная скорость, противники не успеют убежать'''
     character.is_custom = False
@@ -524,8 +625,14 @@ def Star_Rage():
 def Aspiring_Mangaka():
     character = Character()
     character.name = "Aspiring Mangaka"
+    character.urlname = "Aspiring_Mangaka"
+    character.who = "Бернард Чарльз"
+    character.health = "85"
     character.base_only = True
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -548,8 +655,14 @@ def Aspiring_Mangaka():
 def Lucky_Coward():
     character = Character()
     character.name = "Lucky Coward"
+    character.urlname = "Lucky_Coward"
+    character.who = "Шигемо Харута"
+    character.health = "70"
     character.base_only = True
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -572,8 +685,14 @@ def Lucky_Coward():
 def Crow_Charmer():
     character = Character()
     character.name = "Crow Charmer"
+    character.urlname = "Crow_Charmer"
+    character.who = "Меи Меи"
+    character.health = "100"
     character.base_only = True
     character.overpowered = False
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -598,8 +717,14 @@ def Crow_Charmer():
 def Strongest_Of_History():
     character = Character()
     character.name = "Strongest Of History"
+    character.urlname = "Strongest_Of_History"
+    character.who = "Рёмен Сукуна (Нейан)"
+    character.health = "100(в зависимости от количества игроков в FSD)"
     character.base_only = True
     character.overpowered = True
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False
@@ -622,8 +747,14 @@ def Strongest_Of_History():
 def Monkey_Kid():
     character = Character()
     character.name = "Monkey Kid"
+    character.urlname = "Monkey_Kid"
+    character.who = "Сон Гоку"
+    character.health = "100"
     character.base_only = True
     character.overpowered = True
+    character.description = '''
+    Спам и анскилл
+    '''
     character.tips = '''
     '''
     character.is_custom = False

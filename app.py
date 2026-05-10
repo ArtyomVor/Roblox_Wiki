@@ -34,6 +34,7 @@ def main():
 
     # db_fill.Locust_Guy()
     # db_fill.Star_Rage()
+    # db_fill.Aspiring_Mangaka()
     # db_fill.Lucky_Coward()
     # db_fill.Crow_Charmer()
 
@@ -63,13 +64,30 @@ def welcome():
 # @app.route("/characters")
 # def characters():
 #     return "Characters page"
-#
-#
-# @app.route("/character/<name>")
-# def character(name):
-#     return f"Character page: {name}"
-#
-#
+
+
+@app.route("/characters/<cur_name>")
+def character(cur_name):
+    db_sess = db_session.create_session()
+    pers = db_sess.query(Character).filter(Character.urlname == cur_name).first()
+
+    params = {}
+    params['name'] = pers.name
+    params['description'] = pers.description
+    params['img_url1'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname}.png')
+    params['img_url2'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "2"}.png')
+    params['img_url_Ult_Activation'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "UltActivation"}.png')
+    params['img_url_Ult'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "Ult"}.png')
+    params['img_url_Ult2'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "Ult2"}.png')
+    params['who'] = pers.who
+    params['price'] = pers.price
+    params['awakening'] = pers.awakening
+    params['health'] = pers.health
+    params['tips'] = pers.tips
+    params['facts'] = pers.facts
+    return render_template("character.html", **params)
+
+
 # @app.route("/mechanics/<thing>")
 # def mechanics(thing):
 #     return f"Mechanic: {thing}"
