@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block extra_css %}
 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/characters.css') }}">
+<style>
+    body {
+        background-color: #efeae7;
+        background: url("{{ backgroung_img_url }}") no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
 <div role="main" class="page-wrapper">
     <main class="content">
         <!-- Имя -->
@@ -224,5 +239,4 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
     });
 });
 </script>
-
 {% endblock %}

@@ -9,7 +9,8 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
 
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/JJS_Logo.png') }}">
-        <title>JJS_Wiki =)</title>
+        {% block extra_css %}{% endblock %}
+        <title>{{ title }}</title>
     </head>
 
     <body>

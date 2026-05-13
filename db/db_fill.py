@@ -719,7 +719,8 @@ def Strongest_Of_History():
     character.name = "Strongest Of History"
     character.urlname = "Strongest_Of_History"
     character.who = "Рёмен Сукуна (Нейан)"
-    character.health = "100(в зависимости от количества игроков в FSD)"
+    character.price = "Выбить в FSD в Roulette\nOverpowered на приватном сервере"
+    character.health = "100(завис. от кол-ва игроков)"
     character.base_only = True
     character.overpowered = True
     character.description = '''
@@ -750,6 +751,7 @@ def Monkey_Kid():
     character.urlname = "Monkey_Kid"
     character.who = "Сон Гоку"
     character.health = "100"
+    character.price = "Overpowered на приватном сервере"
     character.base_only = True
     character.overpowered = True
     character.description = '''

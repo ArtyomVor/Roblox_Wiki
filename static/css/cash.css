@@ -1,0 +1,36 @@
+/* ---------------------< Cash >--------------------- */
+
+h3 {
+    margin-top: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.mini-popup {
+    position: relative;
+    display: inline-block;
+}
+
+.thumb {
+    width: 200px;
+    cursor: zoom-in;
+    border-radius: 12px;
+}
+
+.popup {
+    position: absolute;
+    top: -10%;
+    transform: translateY(-50%);
+    padding: 12px;
+    border-radius: 12px;
+    display: none;
+    z-index: 9999;
+}
+
+.popup img {
+    border-radius: 12px;
+}
+
+.mini-popup:hover .popup {
+    display: block;
+}

@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cash.css') }}">
+<style>
+    body {
+        background-color: #efeae7;
+        background: url("{{ url_for('static', filename='img/cash/cash_background.png') }}") no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+        <div role="main" class="page-wrapper">
+            <main class="content">
+                <h1 class="page-title">Cash</h1>
+                <h2>Получение</h2>
+                <p>После убийства игрока(килл засчитывается тому, кто нанёс больше всех урона) вы получаете 5$ (5 кэша).</p>
+                <p>Так же кэш можно получить игра в Roulette, но там денег за убийства выдаваться не будут, однако это всё ещё самый лучший способ их накопления.</p>
+
+                <h2>Куда тратить кэш?</h2>
+                <p>Если сверху слева нажать на значок денюшек, то вылезет меню возможных вложений (наведитесь на картинку).</p>
+                <p>Кроме того, за робуксы можно подарить всё что угодно из этого блока. Поддерживается отправка, даже если игрок офлайн, всё равно подарок дойдёт.</p>
+                <div class="zoom-wrapper">
+                    <div class="mini-popup">
+                        <img src={{ url_for('static', filename='img/cash/cash_1.png') }} class="thumb">
+                        <div class="popup">
+                            <img src={{ url_for('static', filename='img/cash/cash_1.png') }} width="800">
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Shop -->
+                <h3>Первая вкладка - то, что можно купить за игровую валюту</h3>
+                <div>
+                    <h4><a href="/cash/shop">Shop</a></h4>
+                    <ul>
+                        <li><a href="/cash/shop/emotes">Emotes</a></li>
+                        <li><a href="/cash/shop/victory_flashes">Victory Flashes</a></li>
+                        <li><a href="/cash/shop/soda_delivery">Soda Delivery</a></li>
+                        <li><a href="/cash/shop/item_delivery">Item Delivery</a></li>
+                    </ul>
+
+                    <p>1 / 2 / 5 / 10 случайных эмоций (250$ * кол-во / 25 робуксов). Более того, если купить за раз 10 эмоций, то можно будет выбрать 1 конкретную по названию.</p>
+                    <p>Victory Flashes (1000$ / 100 робуксов) - мини-катсцена, которая будет проигрываться, когда вы выиграли в дуэли или заняли первое место в Roulette.</p>
+                    <p>Доставка соды (5$) - к вам прилетит Delivery Guy и бросит соду, если её выпить, вплоть до получения метки Combat(в бою) ваша скорость регенерации hp будет x3.</p>
+                    <p>Доставка 1 случайного предмета (10$) - к вам прилетит тот же Delivery Guy, но теперь сбросит 1 случайный предмет.</p>
+
+                    <div class="mini-popup">
+                        <img src={{ url_for('static', filename='img/cash/cash_2.png') }} class="thumb">
+                        <div class="popup">
+                            <img src={{ url_for('static', filename='img/cash/cash_2.png') }} width="800">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="mini-popup">
+                        <img src={{ url_for('static', filename='img/cash/cash_3.png') }} class="thumb">
+                        <div class="popup">
+                            <img src={{ url_for('static', filename='img/cash/cash_3.png') }} width="800">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gamepass -->
+                <h3>Вторая вкладка - донаты: только за робуксы</h3>
+                <div>
+                    <h4><a href="/cash/gamepass">Gamepass</a></h4>
+                    <ul>
+                        <li><a href="/cash/gamepass/early_access">Early Access</a></li>
+                        <li><a href="/cash/gamepass/more_emote_slots">More Emote Slots</a></li>
+                        <li><a href="/cash/gamepass/custom_kill_sound">Custom Kill Sound</a></li>
+                        <li><a href="/cash/gamepass/second_emote_page">Second Emote Page</a></li>
+                        <li><a href="/cash/gamepass/more_build_saves">More Build Saves</a></li>
+                        <li><a href="/cash/gamepass/awakening_outfits">Awakening Outfits</a></li>
+                    </ul>
+
+                    <p>Early Access (300 робуксов) - перед тем, как персонажи полноценно добавляются, они находятся в "Раннем доступе". Например, если доделаны не все приёмы.</p>
+                    <p>More Emote Slots (150 робуксов) - базово у вас есть 4 слота под эмоции, которые вы можете использовать.</p>
+                    <p>Custom Kill Sound (100 робуксов) - после убийства врага будет проигрываться выбранный вами звук.</p>
+                    <p>Second Emote Page (175 робуксов) - открывает доступ ко второй странице слотов эмоций.</p>
+                    <p>More Build Saves (125 робуксов) - базово у вас есть 3 слота под сохранение свои построек на приватном сервере. Этот gamepass добавляет ещё 3 слота.</p>
+                    <p>Awakening Outfits (100 робуксов) - пока вы в авейке(ульте), ваш аватар меняется на выбранный.</p>
+
+                    <div class="mini-popup">
+                        <img src={{ url_for('static', filename='img/cash/cash_4.png') }} class="thumb">
+                        <div class="popup">
+                            <img src={{ url_for('static', filename='img/cash/cash_4.png') }} width="800">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="mini-popup">
+                        <img src={{ url_for('static', filename='img/cash/cash_5.png') }} class="thumb">
+                        <div class="popup">
+                            <img src={{ url_for('static', filename='img/cash/cash_5.png') }} width="800">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merch -->
+                <h3>Третья вкладка - мерч: одежда и аксессуары за робуксы</h3>
+                <div>
+                    <h4><a href="/cash/merch">Merch</a></h4>
+
+                    <p>Фирменные одежда и аксессуары, что ещё сказать) .</p>
+
+                    <div class="mini-popup">
+                        <img src={{ url_for('static', filename='img/cash/cash_6.png') }} class="thumb">
+                        <div class="popup">
+                            <img src={{ url_for('static', filename='img/cash/cash_6.png') }} width="800">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Codes -->
+                <h3>Четвёртая вкладка - коды</h3>
+                <div>
+                    <h4><a href="/cash/codes">Codes</a></h4>
+
+                    <p>В это поле вводятся коды, которые могут дать вам эмоции, кэш или ачивку. Подробнее по ссылке выше.</p>
+
+                    <div class="mini-popup">
+                        <img src={{ url_for('static', filename='img/cash/cash_7.png') }} class="thumb">
+                        <div class="popup">
+                            <img src={{ url_for('static', filename='img/cash/cash_7.png') }} width="800">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </main>
+        </div>
+
+{% endblock %}
