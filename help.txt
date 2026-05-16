@@ -13,6 +13,7 @@
 # pip install flask-wtf
 # pip install sqlalchemy
 # pip install alembic
+# pip install flask-login
 
 # http://localhost:8080/static/img/JJS_MainPage1.png
 # http://127.0.0.1:8080/static/img/JJS_Logo.png
@@ -85,7 +86,7 @@
 #########################################################################
 # Index
 
-# Шаблоны
+########################### Шаблоны
 
 # {% set a = 10 %}
 
@@ -104,6 +105,17 @@
 # loop.index0 — индекс итерации с нуля
 # loop.first — True, если первая итерация, иначе False
 # loop.last — True, если последняя итерация, иначе False
+
+########################### Bootstrap
+# btn-primary — синяя кнопка (основное действие)
+# btn-secondary — серая кнопка
+# btn-success — зелёная кнопка (успех)
+# btn-danger — красная кнопка (ошибка/удаление)
+# btn-warning — жёлтая кнопка (предупреждение)
+# btn-info — голубая кнопка (информация)
+# btn-light — светлая кнопка
+# btn-dark — тёмная кнопка
+# btn-link — кнопка‑ссылка (как текст)
 
 #########################################################################
 # CSS

@@ -8,6 +8,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h1 {
+    margin-top: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
 
 .top-header {
     background: #1a1a1a;
@@ -15,8 +20,60 @@ body {
     padding: 12px 20px;
     font-size: 22px;
     font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* ---------------------< Авторизация >--------------------- */
+.auth-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-name {
+    color: #e0e0e0;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: #2a2a2a;
+    transition: 0.2s;
+}
+
+.user-name:hover {
+    background: #3a3a3a;
+    color: #fff;
+}
+
+.auth-block .btn {
+    padding: 6px 14px;
+    font-size: 16px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.auth-block .btn-primary {
+    background: #007bff;
+    border: none;
+}
+
+.auth-block .btn-primary:hover {
+    background: #0a84ff;
+}
+
+.auth-block .btn-success {
+    background: #28a745;
+    border: none;
+}
+
+.auth-block .btn-success:hover {
+    background: #2ecc71;
+}
+/* ---------------------< Авторизация(конец) >--------------------- */
 
 .top-nav-wrapper {
     width: 50%;

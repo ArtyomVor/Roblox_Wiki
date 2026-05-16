@@ -3,53 +3,119 @@ from flask import request
 from flask import url_for
 from flask import redirect
 from flask import render_template
+from flask_login import LoginManager
+from flask_login import login_user
+from flask_login import login_required
+from flask_login import logout_user
+from flask_login import current_user
 from os import path
 from random import randint
 from random import seed
 from time import time
 
+from forms.userForm import LoginForm
+from forms.userForm import RegisterForm
+from forms.userForm import AdminForm
 from data import db_session
 from data.users import User
 from data.characters import Character
 from db import db_fill
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Roblox_Wiki_secret_key==StrongestKey'
+app.config['SECRET_KEY'] = 'Roblox_Wiki_secret_keyStrongestKey'
+
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 
-def main():
-    db_session.global_init("db/Jujutsu_Shenanigans.db")
+@login_manager.user_loader
+def load_user(user_id):
+    db_sess = db_session.create_session()
+    return db_sess.get(User, user_id)
 
-    # db_fill.Honored_One()
-    # db_fill.Vessel()
-    # db_fill.Restless_Gambler()
-    # db_fill.Ten_Shadows()
-    # db_fill.Perfection()
-    # db_fill.Blood_Manipulator()
-    # db_fill.Switcher()
-    # db_fill.Defense_Attorney()
-    # db_fill.Cursed_Partners()
-    # db_fill.Puppet_Master()
-    # db_fill.Head_of_the_Hei()
-    # db_fill.Salaryman()
-    # db_fill.Disaster_Plant()
-    # db_fill.True_Cannon()
 
-    # db_fill.Locust_Guy()
-    # db_fill.Star_Rage()
-    # db_fill.Aspiring_Mangaka()
-    # db_fill.Lucky_Coward()
-    # db_fill.Crow_Charmer()
+@app.route('/register', methods=['GET', 'POST'])
+def reqister():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        if form.password.data != form.password_again.data:
+            return render_template('register.html', title='Регистрация',
+                                    form=form,
+                                    message="Пароли не совпадают")
+        db_sess = db_session.create_session()
+        if db_sess.query(User).filter(User.email == form.email.data).first():
+            return render_template('register.html', title='Регистрация',
+                                    form=form,
+                                    message="Такой пользователь уже есть")
+        user = User(
+            name=form.name.data,
+            email=form.email.data,
+            about=form.about.data
+        )
+        user.set_password(form.password.data)
+        db_sess.add(user)
+        db_sess.commit()
+        return redirect('/')
 
-    # db_fill.Strongest_Of_History()
-    # db_fill.Monkey_Kid()
+    return render_template('register.html', title='JJS Wiki Регистрация =)', form=form)
 
-    # db_sess = db_session.create_session()
-    # pers = db_sess.query(Character).filter(Character.id==5).first()
-    # pers.tips = '''
-    # '''
-    # db_sess.commit()
-    # print(f"{pers.name}: tips updated")
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        user = db_sess.query(User).filter(User.email == form.email.data).first()
+        if user and user.check_password(form.password.data):
+            login_user(user)
+            return redirect("/")
+        return render_template('login.html',
+                                message="Неправильный логин или пароль",
+                                form=form)
+    return render_template('login.html', title='JJS Wiki Авторизация =)', form=form)
+
+
+@app.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html', title = 'JJS Wiki Профиль =)', user=current_user)
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
+
+
+@app.route('/profile/became_Admin', methods=['GET', 'POST'])
+@login_required
+def became_Admin():
+    form = AdminForm()
+
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+
+        current_user.about = form.about.data
+        current_user.why_accept = form.why_accept.data
+
+        if form.photo.data:
+            file = form.photo.data
+            filename = f"{current_user.id}_{current_user.name}.jpg"
+            file.save(f"/statis/users_files/img/{filename}")
+            current_user.photo = filename
+
+        db_sess.commit()
+        return redirect('/profile')
+
+    return render_template('admin_form.html', title = 'JJS Wiki Форма на становление администратором =)', form=form)
+
+
+@app.route('/profile/download_photo', methods=['GET', 'POST'])
+@login_required
+def download_photo():
+    return "Скоро..."
 
 
 @app.route("/")
@@ -150,6 +216,50 @@ def secter67():
     return render_template('index67.html', **params)
 
 
+def main():
+    db_session.global_init("db/Jujutsu_Shenanigans.db")
+
+    # db_fill.Honored_One()
+    # db_fill.Vessel()
+    # db_fill.Restless_Gambler()
+    # db_fill.Ten_Shadows()
+    # db_fill.Perfection()
+    # db_fill.Blood_Manipulator()
+    # db_fill.Switcher()
+    # db_fill.Defense_Attorney()
+    # db_fill.Cursed_Partners()
+    # db_fill.Puppet_Master()
+    # db_fill.Head_of_the_Hei()
+    # db_fill.Salaryman()
+    # db_fill.Disaster_Plant()
+    # db_fill.True_Cannon()
+
+    # db_fill.Locust_Guy()
+    # db_fill.Star_Rage()
+    # db_fill.Aspiring_Mangaka()
+    # db_fill.Lucky_Coward()
+    # db_fill.Crow_Charmer()
+
+    # db_fill.Strongest_Of_History()
+    # db_fill.Monkey_Kid()
+
+    # db_sess = db_session.create_session()
+    # pers = db_sess.query(Character).filter(Character.id==5).first()
+    # pers.tips = '''
+    # '''
+    # db_sess.commit()
+    # print(f"{pers.name}: tips updated")
+
+
+# ---------------------< Дебаг >---------------------
+import traceback
+
+@app.errorhandler(500)
+def internal_error(error):
+    print(traceback.format_exc())
+    return "Ошибка 500, админ скоро всё исправит)", 500
+
+# ---------------------< Main >---------------------
 if __name__ == '__main__':
     main()
     app.run(port=8080, host='127.0.0.1')

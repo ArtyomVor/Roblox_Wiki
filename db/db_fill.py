@@ -6,7 +6,10 @@
 # Ctrl + 4 - Скиллы
 # Ctrl + 5 - Вывод инфы
 
+from datetime import datetime
+
 from data.characters import Character
+from data.users import User
 from data.db_session import create_session
 
 
@@ -780,6 +783,9 @@ def Monkey_Kid():
 
 def Lapse_Blue():
     pass
+
+
+################# < Users > #################
 
 
 if __name__ == '__main__':
