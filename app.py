@@ -21,6 +21,20 @@ from data.users import User
 from data.characters import Character
 from db import db_fill
 
+##################### Rest Api Переводчик
+import requests
+
+
+def translate_text(text, target_lang="en"):
+    url = "https://api.mymemory.translated.net/get"
+    params = {
+        "q": text,
+        "langpair": f"en|{target_lang}"
+    }
+    response = requests.get(url, params=params).json()
+
+
+##################### Сам Сайт
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Roblox_Wiki_secret_keyStrongestKey'
 
@@ -40,13 +54,13 @@ def reqister():
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
             return render_template('register.html', title='Регистрация',
-                                    form=form,
-                                    message="Пароли не совпадают")
+                                   form=form,
+                                   message="Пароли не совпадают")
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.email == form.email.data).first():
             return render_template('register.html', title='Регистрация',
-                                    form=form,
-                                    message="Такой пользователь уже есть")
+                                   form=form,
+                                   message="Такой пользователь уже есть")
         user = User(
             name=form.name.data,
             email=form.email.data,
@@ -71,15 +85,15 @@ def login():
             login_user(user)
             return redirect("/")
         return render_template('login.html',
-                                message="Неправильный логин или пароль",
-                                form=form)
+                               message="Неправильный логин или пароль",
+                               form=form)
     return render_template('login.html', title='JJS Wiki Авторизация =)', form=form)
 
 
 @app.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', title = 'JJS Wiki Профиль =)', user=current_user)
+    return render_template('profile.html', title='JJS Wiki Профиль =)', user=current_user)
 
 
 @app.route('/logout')
@@ -109,7 +123,7 @@ def became_Admin():
         db_sess.commit()
         return redirect('/profile')
 
-    return render_template('admin_form.html', title = 'JJS Wiki Форма на становление администратором =)', form=form)
+    return render_template('admin_form.html', title='JJS Wiki Форма на становление администратором =)', form=form)
 
 
 @app.route('/profile/download_photo', methods=['GET', 'POST'])
@@ -148,18 +162,20 @@ def character(cur_name):
         if (pers.urlname == "Restless_Gambler"):
             seed(time())
             params['backgroung_img_url'] = url_for('static',
-filename=f'img/characters/{pers.urlname}/{pers.urlname + "_Background" + str(1 + randint(0, 239) % 3)}.png')
+                                                   filename=f'img/characters/{pers.urlname}/{pers.urlname + "_Background" + str(1 + randint(0, 239) % 3)}.png')
         else:
             params['backgroung_img_url'] = url_for('static',
-filename=f'img/characters/{pers.urlname}/{pers.urlname + "_Background"}.png')
+                                                   filename=f'img/characters/{pers.urlname}/{pers.urlname + "_Background"}.png')
 
         params['name'] = pers.name
         params['description'] = pers.description
         params['img_url1'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname}.png')
         params['img_url2'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "2"}.png')
-        params['img_url_Ult_Activation'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "UltActivation"}.png')
+        params['img_url_Ult_Activation'] = url_for('static',
+                                                   filename=f'img/characters/{pers.urlname}/{pers.urlname + "UltActivation"}.png')
         params['img_url_Ult'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "Ult"}.png')
-        params['img_url_Ult2'] = url_for('static', filename=f'img/characters/{pers.urlname}/{pers.urlname + "Ult2"}.png')
+        params['img_url_Ult2'] = url_for('static',
+                                         filename=f'img/characters/{pers.urlname}/{pers.urlname + "Ult2"}.png')
         params['who'] = pers.who
         params['price'] = pers.price
         params['awakening'] = pers.awakening
@@ -169,7 +185,7 @@ filename=f'img/characters/{pers.urlname}/{pers.urlname + "_Background"}.png')
         return render_template("character.html", **params)
     else:
         params['backgroung_img_url'] = (url_for('static',
-                                filename=f'img/characters/{pers.urlname}/{pers.urlname + "_Background"}.png'))
+                                                filename=f'img/characters/{pers.urlname}/{pers.urlname + "_Background"}.png'))
 
         params['name'] = pers.name
         params['description'] = pers.description
@@ -202,9 +218,41 @@ def cash():
 @app.route("/secret/authors")
 @app.route("/secrets/authors")
 def secretAuthors():
-    params = {}
-    params['title'] = "JJS Wiki Authors Secret(1/2) =)"
-    return "Проект Воропаева Артёма и Кузнецова Максима по Любимому Яндекс Лицую❤"
+    lang = request.args.get("lang", "ru")
+    text = "Проект Воропаева Артёма и Кузнецова Максима по Любимому Яндекс Лицую❤"
+
+    if lang != "ru":
+        text = translate_text(text, lang)
+
+    return f'''
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/base.css')}">
+
+        <link rel="icon" type="image/png" href="{url_for('static', filename='img/JJS_Logo.png')}">
+        
+        <title>JJS Wiki Authors Secret(1/2) =)</title>
+    </head>
+    <body style='background:#111;color:white;font-family:Segoe UI;padding:40px;'>
+        <div class="box">
+            <h1>Авторы данного проекта</h1>
+            <h3>Cервис перевода бесплатный: если он перегружен, то в качестве перевода вернёт пустую строчку</h3>
+            <br>
+            <p>{text}</p>
+
+            <div class="lang-buttons">
+                <a href="?text={text}&lang=ru">RU</a>
+                <a href="?text={text}&lang=en">EN</a>
+            </div>
+        </div>
+    </body>
+    </html>
+    '''
 
 
 @app.route("/secret/67")
@@ -254,16 +302,17 @@ def main():
 # ---------------------< Дебаг >---------------------
 import traceback
 
+
 @app.errorhandler(500)
 def internal_error(error):
     print(traceback.format_exc())
     return "Ошибка 500, админ скоро всё исправит)", 500
 
+
 # ---------------------< Main >---------------------
 if __name__ == '__main__':
     main()
     app.run(port=8080, host='127.0.0.1')
-
 
 ##### Что сделано:
 
