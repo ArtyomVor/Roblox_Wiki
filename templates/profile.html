@@ -7,13 +7,8 @@
          <h2>Ваш профиль</h2>
 
         <div style="margin-bottom: 20px;">
-            {% if user.photo %}
-                <img src="{{ url_for('static', filename='users_files/img/' + user.id + '_' + user.name) }}" alt="Фото профиля"
-                     style="width: 180px; height: 180px; object-fit: cover; border-radius: 10px; border: 2px solid #333;">
-            {% else %}
-                <img src="{{ url_for('static', filename='img/emoji/takePhotoEmoji.png') }}" alt="Фото профиля"
-                     style="width: 180px; height: 180px; object-fit: cover; border-radius: 10px; border: 2px solid #333;">
-            {% endif %}
+            <img src={{ image }} alt="Фото профиля"
+                 style="width: 180px; height: 180px; object-fit: cover; border-radius: 10px; border: 2px solid #333;">
         </div>
         <a class="btn btn-secondary" href="/profile/download_photo">Загрузить фото</a>
         <br>
