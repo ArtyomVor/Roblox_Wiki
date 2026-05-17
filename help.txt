@@ -14,6 +14,7 @@
 # pip install sqlalchemy
 # pip install alembic
 # pip install flask-login
+# pip install requests
 
 # http://localhost:8080/static/img/JJS_MainPage1.png
 # http://127.0.0.1:8080/static/img/JJS_Logo.png
