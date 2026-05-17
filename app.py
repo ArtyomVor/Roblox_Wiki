@@ -93,7 +93,16 @@ def login():
 @app.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', title='JJS Wiki Профиль =)', user=current_user)
+    params = {}
+    params['title'] = 'JJS Wiki Профиль =)'
+    params['user'] = current_user
+    my_path = url_for('static', filename='users_files/img/' + str(current_user.id) + '_' + current_user.name + '.png')
+    if path.exists(my_path[1:]):
+        params['image'] = my_path
+    else:
+        params['image'] = url_for('static', filename='img/emoji/takePhotoEmoji.png')
+
+    return render_template('profile.html', **params)
 
 
 @app.route('/logout')
@@ -116,9 +125,10 @@ def became_Admin():
 
         if form.photo.data:
             file = form.photo.data
-            filename = f"{current_user.id}_{current_user.name}.jpg"
-            file.save(f"/statis/users_files/img/{filename}")
-            current_user.photo = filename
+            filename = f"{current_user.id}_{current_user.name}.png"
+            path = f"static/users_files/img/{filename}"
+            with open(path, mode="wb") as f:
+                f.write(file.read())
 
         db_sess.commit()
         return redirect('/profile')
